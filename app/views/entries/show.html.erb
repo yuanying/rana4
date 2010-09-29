@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @entry.title %>
+</p>
+
+<p>
+  <b>Path:</b>
+  <%= @entry.path %>
+</p>
+
+<p>
+  <b>Is public:</b>
+  <%= @entry.is_public %>
+</p>
+
+<p>
+  <b>Format type:</b>
+  <%= @entry.format_type %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @entry.description %>
+</p>
+
+<p>
+  <b>Body text:</b>
+  <%= @entry.body_text %>
+</p>
+
+<p>
+  <b>Extend text:</b>
+  <%= @entry.extend_text %>
+</p>
+
+<p>
+  <b>Site:</b>
+  <%= @entry.site_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @entry.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_entry_path(@entry) %> |
+<%= link_to 'Back', entries_path %>

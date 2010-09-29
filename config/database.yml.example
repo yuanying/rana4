@@ -1,7 +1,7 @@
 login: &login
   adapter: mysql2
   host: localhost
-  username: root
+  user: root
   password: 
   encoding: utf8  
 

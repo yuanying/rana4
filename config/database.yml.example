@@ -6,13 +6,13 @@ login: &login
   encoding: utf8  
 
 development:
-  database: rana3_dev
+  database: rana4_dev
   <<: *login
 
 test:
-  database: rana3_tests
+  database: rana4_tests
   <<: *login
 
 production:
-  database: rana3
+  database: rana4
   <<: *login

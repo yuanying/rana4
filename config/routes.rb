@@ -1,6 +1,6 @@
 Rana4::Application.routes.draw do
   
-  resources :sites do
+  resources :sites, :except => [:index, :show, :new, :create, :destroy] do
     resources :entries
   end
   

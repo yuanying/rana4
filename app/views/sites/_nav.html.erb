@@ -1,0 +1,17 @@
+<nav class='site_navigation'>
+
+<dl>
+  <dt><%= t '.archives.title' %></dt>
+  <dd><%= link_to_unless_current t('.archives.new_entry'), new_site_entry_path(site) %></dd>
+  <dd><%= link_to_unless_current t('.archives.entries'), site_entries_path(site)%></dd>
+  <dd><%= link_to_unless_current t('.archives.files')%></dd>
+</dl>
+
+<dl>
+  <dt><%= t '.sites.title' %></dt>
+  <dd><%= link_to_unless_current t('.sites.configs'), edit_site_path(site) %></dd>
+  <dd><%= link_to_unless_current t('.sites.writings') %></dd>
+  <dd><%= link_to_unless_current t('.sites.rebuild')%></dd>
+</dl>
+
+</nav>

@@ -10,4 +10,10 @@ class ApplicationController < ActionController::Base
   def load_user
     @user = User.find_or_create_by_cas_id(session[:cas_user])
   end
+  
+  def load_site
+    if params[:site_id]
+      @site = Site.find(params[:site_id])
+    end
+  end
 end

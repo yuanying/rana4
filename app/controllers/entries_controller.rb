@@ -1,8 +1,10 @@
 class EntriesController < ApplicationController
+  before_filter :load_site
+  
   # GET /entries
   # GET /entries.xml
   def index
-    @entries = Entry.all
+    @entries = @site.entries
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +15,7 @@ class EntriesController < ApplicationController
   # GET /entries/1
   # GET /entries/1.xml
   def show
-    @entry = Entry.find(params[:id])
+    @entry = @site.entries.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -41,6 +43,7 @@ class EntriesController < ApplicationController
   # POST /entries.xml
   def create
     @entry = Entry.new(params[:entry])
+    @entry.site = @site
 
     respond_to do |format|
       if @entry.save
@@ -56,7 +59,7 @@ class EntriesController < ApplicationController
   # PUT /entries/1
   # PUT /entries/1.xml
   def update
-    @entry = Entry.find(params[:id])
+    @entry = @site.entries.find(params[:id])
 
     respond_to do |format|
       if @entry.update_attributes(params[:entry])
@@ -72,7 +75,7 @@ class EntriesController < ApplicationController
   # DELETE /entries/1
   # DELETE /entries/1.xml
   def destroy
-    @entry = Entry.find(params[:id])
+    @entry = @site.entries.find(params[:id])
     @entry.destroy
 
     respond_to do |format|

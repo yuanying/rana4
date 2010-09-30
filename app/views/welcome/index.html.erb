@@ -1,0 +1,15 @@
+
+<table>
+  <tbody>
+    <% @sites.each do |site| %>
+    <tr>
+      <th><%= site.title %></th>
+    </tr>
+    <tr>
+      <td>
+        <%= render :partial => 'sites/nav', :locals => { :site => site }%>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

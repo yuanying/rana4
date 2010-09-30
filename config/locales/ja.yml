@@ -156,6 +156,7 @@ ja:
   
     models:
       site: 'サイト'
+      writing: '著者'
 
     attributes:
       site:

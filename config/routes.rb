@@ -1,5 +1,9 @@
 Rana4::Application.routes.draw do
   
+  namespace :admin do
+    resources :sites
+  end
+  
   resources :sites, :except => [:index, :show, :new, :create, :destroy] do
     resources :entries
   end

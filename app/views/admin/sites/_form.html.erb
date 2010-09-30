@@ -1,10 +1,10 @@
-<%= form_for(@site) do |f| %>
-  <% if @site.errors.any? %>
+<%= form_for([:admin, @admin_site]) do |f| %>
+  <% if @admin_site.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@site.errors.count, "error") %> prohibited this site from being saved:</h2>
+      <h2><%= pluralize(@admin_site.errors.count, "error") %> prohibited this admin_site from being saved:</h2>
 
       <ul>
-      <% @site.errors.full_messages.each do |msg| %>
+      <% @admin_site.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -23,16 +23,28 @@
     <%= f.label :url %><br />
     <%= f.text_field :url %>
   </div>
-  <% if @user.author?(@site)%>
   <div class="field">
     <%= f.label :path %><br />
     <%= f.text_field :path %>
   </div>
-  <% end %>
   <div class="field">
     <%= f.label :timezone %><br />
     <%= f.time_zone_select :timezone, priority_zones() %>
   </div>
+  <div class='field'>
+    <%=t 'activerecord.models.writing' %>
+    <ul>
+    <% User.all.each_with_index do |user, index| %>
+      <li>
+        <label>
+          <%= check_box_tag "#{f.object_name}[writings_attributes][#{index}][user_id]", user.id, user.author?(f.object) %>
+          <%= user.display_name %>
+        </label>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

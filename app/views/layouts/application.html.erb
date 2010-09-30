@@ -7,8 +7,20 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
+  
+  <header id='site'>
+    <h1>RanaPrunus</h1>
+    <p class='description'><%=t '.description'%></p>
+    <% if @site %>
+    <%= render :partial => 'sites/nav', :locals => { :site => @site }%>
+    <% end %>
+  </header>
 
-<%= yield %>
+<article id='page'><%= yield %></article>
+
+<footer>
+  <address>&copy; 2007-<%=Time.now.strftime('%Y')%> Yuanying all right reserved.</address>
+</footer>
 
 </body>
 </html>

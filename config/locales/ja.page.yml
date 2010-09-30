@@ -1,0 +1,17 @@
+ja:
+  layouts:
+    application:
+      description: 'サイト管理システム'
+  sites:
+    nav:
+      archives:
+        title: 'アーカイブ'
+        new_entry: '新しいエントリを書く'
+        entries: 'エントリ一覧'
+        files: 'ファイル一覧'
+      sites:
+        title: 'サイト'
+        configs: '設定'
+        writings: '執筆者一覧'
+        rebuild: '再構築'
+      

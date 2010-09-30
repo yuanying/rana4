@@ -1,5 +1,6 @@
 class EntriesController < ApplicationController
   before_filter :load_site
+  before_filter :check_site_authorization
   
   # GET /entries
   # GET /entries.xml
@@ -36,7 +37,7 @@ class EntriesController < ApplicationController
 
   # GET /entries/1/edit
   def edit
-    @entry = Entry.find(params[:id])
+    @entry = @site.entries.find(params[:id])
   end
 
   # POST /entries

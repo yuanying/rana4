@@ -16,4 +16,11 @@ class ApplicationController < ActionController::Base
       @site = Site.find(params[:site_id])
     end
   end
+  
+  def check_site_authorization
+    unless @user.author?(@site)
+      render(:text => 'Invalid Authorization.', :status => 403)
+      return false
+    end
+  end
 end

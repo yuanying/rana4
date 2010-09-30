@@ -1,13 +1,14 @@
 class SitesController < ApplicationController
+  before_filter :load_site
+  
   # GET /sites/1/edit
   def edit
-    @site = Site.find(params[:id])
+    
   end
 
   # PUT /sites/1
   # PUT /sites/1.xml
   def update
-    @site = Site.find(params[:id])
 
     respond_to do |format|
       if @site.update_attributes(params[:site])
@@ -18,5 +19,10 @@ class SitesController < ApplicationController
         format.xml  { render :xml => @site.errors, :status => :unprocessable_entity }
       end
     end
+  end
+  
+  protected
+  def load_site
+    @site = Site.find(params[:id])
   end
 end

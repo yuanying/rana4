@@ -12,17 +12,32 @@ class Entry < ActiveRecord::Base
   
   composed_of :posted_at_local, :class_name => 'Time'
   
+  after_initialize :setup_etc
+  
   attr_accessor :path_suggestion
   
-  def after_initialize
-    self.posted_at = DateTime.now
-    self.path_suggestion = "/#{self.posted_at.strftime('%Y')}/#{self.posted_at.strftime('%m')}/#{self.posted_at.strftime('%d')}/#{self.posted_at.strftime('%H-%M-%S')}"
-    self.identify_string = get_unique_string(:identify_string)
+  def setup_etc
+    self.posted_at = DateTime.now unless self.posted_at
+    self.path_suggestion = "/#{self.posted_at_local.strftime('%Y')}/#{self.posted_at_local.strftime('%m')}/#{self.posted_at_local.strftime('%d')}/#{self.posted_at_local.strftime('%H-%M-%S')}" unless self.path_suggestion
+    self.identify_string = get_unique_string(:identify_string) unless self.identify_string
+    self.is_public = true unless self.is_public
+    if self.format_type.nil? && self.user && self.site
+      writing = Writing.find_by_user_id_and_site_id(self.user.id, self.site.id)
+      self.format_type = writing.default_format_type 
+    end
   end
   
   def before_validation_on_create
     self.path = self.path_suggestion
     self.uniquirize_path!
+  end
+  
+  def posted_at_local=(time)
+    self.posted_at = time - self.site.tz.utc_offset
+  end
+  
+  def posted_at_local
+    self.posted_at + self.site.tz.utc_offset
   end
   
   def uniquirize_path!

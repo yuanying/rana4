@@ -4,7 +4,7 @@ class CreateWritings < ActiveRecord::Migration
       t.integer :site_id
       t.integer :user_id
       t.boolean :is_owner
-      t.string :default_format_type, :default => 'hatenaFormat'
+      t.string :default_format_type, :default => 'xhtml'
 
       t.timestamps
     end

@@ -6,12 +6,17 @@ ja:
     nav:
       archives:
         title: 'アーカイブ'
-        new_entry: '新しいエントリを書く'
-        entries: 'エントリ一覧'
+        new_entry: '新しい記事を書く'
+        entries: '記事一覧'
         files: 'ファイル一覧'
       sites:
         title: 'サイト'
         configs: '設定'
         writings: '執筆者一覧'
         rebuild: '再構築'
+  entries:
+    form:
+      option: 'オプション'
+    new:
+      title: '新しい記事'
       

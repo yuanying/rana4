@@ -157,7 +157,7 @@ ja:
     models:
       site: 'サイト'
       writing: '著者'
-      entry: 'エントリ'
+      entry: '記事'
 
     attributes:
       site:
@@ -176,5 +176,6 @@ ja:
         body_text: '本文'
         extend_text: '追記'
         posted_at: '日付'
+        posted_at_local: '日付'
         
         

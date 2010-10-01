@@ -18,6 +18,7 @@ class CreateEntries < ActiveRecord::Migration
       t.timestamps
     end
     
+    add_index :entries, ["identify_string"], :name => "entries_indentify_string_index"
     add_index :entries, ["site_id"], :name => "entries_site_id_index"
     add_index :entries, ["user_id"], :name => "entries_user_id_index"
   end

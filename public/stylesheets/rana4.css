@@ -1,13 +1,89 @@
+/* @override 
+	http://localhost:3000/stylesheets/rana4.css?1285911155
+	http://localhost:3000/stylesheets/rana4.css?1285913459
+*/
+
 th {
 	text-align: left;
 }
 
-nav.site_navigation {
+.site_navigation {
 	width: 100%;
 	display: box;
-	display: -webkit-box;　/* Safari,Google Chrome用 */
-	display: -moz-box;　/* Firefox用 */
+	display: -webkit-box;
+	display: -moz-box;
 }
-nav.site_navigation div {
+nav.site_navigation dl {
 /*	width: 20em;*/
 }
+
+
+
+/* @group General */
+body {
+	font-family: "Courier New", Courier, mono;
+}
+/* @end */
+
+/* @group Entry Form */
+dl.entry_form {
+	border-radius: 0.4em;
+	-moz-border-radius: 0.4em;
+	border: 1px solid #9999ff;
+}
+dl.entry_form > dd {
+	margin: 0;
+	padding: 0;
+}
+dl.entry_form dt.title {
+	color: #fff;
+	padding: 0.4em;
+	font-weight: bold;
+	background: #8ea2ff url(images/ui-bg_glass_50_3baae3_1x400.png) 0 center;
+}
+dl.entry_form .title {
+	padding: 0;
+	margin: 0;
+}
+dl.entry_form #entry_title {
+	width: 98%;
+	font-size: 1.4em;
+	margin: 0.2em;
+}
+
+#body_text textarea,
+#extend_text textarea {
+	width: 100%;
+	height: 20em;
+}
+
+.jHtmlArea {
+	width: 100%;
+	background-color: #fff;
+}
+.jHtmlArea iframe {
+	border: 1px solid #ccc;
+	width: 100%;
+	height: 20em;
+}
+
+#option dt {
+	border-top-left-radius: 0.2em;
+	border-top-right-radius: 0.2em;
+	-moz-border-top-left-radius: 0.2em;
+	-moz-border-top-right-radius: 0.2em;
+	padding: 0.2em;
+	color: #7b9ee4;
+	font-weight: bold;
+	background: url(images/ui-bg_glass_80_d7ebf9_1x400.png) 0 center;
+}
+#option dd {
+	margin-bottom: 0.4em;
+}
+#option textarea {
+	width: 30em;
+	height: 10em;
+}
+/* @end */
+
+

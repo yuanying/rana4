@@ -1,5 +1,5 @@
 class Admin::SitesController < ApplicationController
-  layout :admin
+  layout 'admin'
   
   # GET /admin/sites
   # GET /admin/sites.xml

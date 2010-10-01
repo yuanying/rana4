@@ -27,7 +27,7 @@ class EntriesController < ApplicationController
   # GET /entries/new
   # GET /entries/new.xml
   def new
-    @entry = Entry.new
+    @entry = Entry.new(:user => @user, :site => @site)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -45,6 +45,7 @@ class EntriesController < ApplicationController
   def create
     @entry = Entry.new(params[:entry])
     @entry.site = @site
+    @entry.user = @user
 
     respond_to do |format|
       if @entry.save

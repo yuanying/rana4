@@ -157,6 +157,7 @@ ja:
     models:
       site: 'サイト'
       writing: '著者'
+      entry: 'エントリ'
 
     attributes:
       site:
@@ -165,3 +166,15 @@ ja:
         url: 'URL'
         path: 'サーバ上のパス'
         timezone: 'タイムゾーン'
+      entry:
+        title: 'タイトル'
+        path: 'パス'
+        path_suggestion: 'パス'
+        is_public: '公開'
+        format_type: 'テキストフォーマット'
+        description: '概要'
+        body_text: '本文'
+        extend_text: '追記'
+        posted_at: '日付'
+        
+        

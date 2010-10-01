@@ -13,6 +13,7 @@ class CreateEntries < ActiveRecord::Migration
       t.text :formated_extend_text
       t.integer :site_id
       t.integer :user_id
+      t.datetime :posted_at
 
       t.timestamps
     end

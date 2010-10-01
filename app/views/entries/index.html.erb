@@ -27,13 +27,13 @@
     <td><%= entry.extend_text %></td>
     <td><%= entry.site_id %></td>
     <td><%= entry.user_id %></td>
-    <td><%= link_to 'Show', entry %></td>
-    <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
-    <td><%= link_to 'Destroy', entry, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', [@site, entry] %></td>
+    <td><%= link_to 'Edit', edit_site_entry_path(@site, entry) %></td>
+    <td><%= link_to 'Destroy', [@site, entry], :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Entry', new_entry_path %>
+<%= link_to 'New Entry', new_site_entry_path(@site) %>

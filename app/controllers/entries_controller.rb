@@ -48,7 +48,7 @@ class EntriesController < ApplicationController
 
     respond_to do |format|
       if @entry.save
-        format.html { redirect_to(@entry, :notice => 'Entry was successfully created.') }
+        format.html { redirect_to([@site, @entry], :notice => 'Entry was successfully created.') }
         format.xml  { render :xml => @entry, :status => :created, :location => @entry }
       else
         format.html { render :action => "new" }
@@ -64,7 +64,7 @@ class EntriesController < ApplicationController
 
     respond_to do |format|
       if @entry.update_attributes(params[:entry])
-        format.html { redirect_to(@entry, :notice => 'Entry was successfully updated.') }
+        format.html { redirect_to([@site, @entry], :notice => 'Entry was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -80,7 +80,7 @@ class EntriesController < ApplicationController
     @entry.destroy
 
     respond_to do |format|
-      format.html { redirect_to(entries_url) }
+      format.html { redirect_to(site_entries_url(@site)) }
       format.xml  { head :ok }
     end
   end

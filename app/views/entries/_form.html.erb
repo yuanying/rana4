@@ -39,14 +39,13 @@
     </div></dd>
     <dt class='title'><%= f.label :posted_at_local %></dt>
     <dd class='title'>
-      <%= f.check_box :is_public %> <%= f.label :is_public %>
       <%= f.datetime_select :posted_at_local %>
+    </dd>
+    <dd class='action'>
+      <%= f.hidden_field :identify_string %>
+      <%= f.submit %>
+      <%= f.check_box :is_public %> <%= f.label :is_public %>
     </dd>
   </dl>
   
-  
-  <div class="actions">
-    <%= f.hidden_field :identify_string %>
-    <%= f.submit %>
-  </div>
 <% end %>

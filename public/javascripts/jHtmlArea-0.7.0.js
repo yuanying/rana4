@@ -376,6 +376,7 @@
                 keydown(fnTA).
                 mousedown(fnTA).
                 blur(fnTA);
+            $(this.editor).blur(fnTA);
 
             $('form').submit(function() { t.toggleHTMLView(); t.toggleHTMLView(); });
             //$(this.textarea[0].form).submit(function() { //this.textarea.closest("form").submit(function() {

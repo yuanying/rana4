@@ -4,7 +4,11 @@
   <title>Rana4</title>
   <%#= stylesheet_link_tag 'scaffold' %>
   <%= stylesheet_link_tag 'jquery-ui-1.8.5.custom' %>
+  <% if Rails.env  == 'production '%>
   <%= stylesheet_link_tag 'rana4' %>
+  <% else %>
+  <link href="/stylesheets/rana4.css" media="screen" rel="stylesheet" type="text/css" />
+  <% end %>
   <%= stylesheet_link_tag 'jHtmlArea' %>
   <%= javascript_include_tag 'jquery.min' %>
   <%= javascript_include_tag 'jquery-ui-1.8.5.custom.min' %>
@@ -14,19 +18,19 @@
 </head>
 <body>
   
-  <header id='site'>
+  <div id='site'>
     <h1>RanaPrunus</h1>
     <p class='description'><%=t '.description'%></p>
     <% if @site %>
     <%= render :partial => 'sites/nav', :locals => { :site => @site }%>
     <% end %>
-  </header>
+  </div>
 
-<article id='page'><%= yield %></article>
+<div id='page'><%= yield %></div>
 
-<footer>
+<div id='publication'>
   <address>&copy; 2007-<%=Time.now.strftime('%Y')%> Yuanying all right reserved.</address>
-</footer>
+</div>
 
 </body>
 </html>

@@ -1,28 +1,105 @@
 /* @override 
-	http://localhost:3000/stylesheets/rana4.css?1285911155
-	http://localhost:3000/stylesheets/rana4.css?1285913459
+	http://localhost:3000/stylesheets/rana4.css
 */
 
 th {
 	text-align: left;
 }
 
-.site_navigation {
+/* @group General */
+body {
+	font-family: "Courier New", Courier, mono;
+	margin: 0;
+	padding: 0;
+}
+/* @end */
+
+/* @group Header */
+#site {
 	width: 100%;
 	display: box;
 	display: -webkit-box;
 	display: -moz-box;
+	padding: 0;
+	background: url(images/ui-bg_diagonals-thick_90_eeeeee_40x40.png) 0 center;
 }
-nav.site_navigation dl {
-/*	width: 20em;*/
+#site h1 {
+	/*display: inline;*/
+	margin: 0 0.4em;
+	padding: 0 16px;
+	/*color: white;*/
 }
 
-
-
-/* @group General */
-body {
-	font-family: "Courier New", Courier, mono;
+* {
+	
 }
+#site .description {
+	margin: 0;
+	/*padding: 0 16px;*/
+	display: none;
+	/*color: #a8c8fa;*/
+}
+.site_navigation {
+	/*color: #fff;*/
+	padding: 0 1em;
+	/*background-color: #dbaf86;*/
+	/*background: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0, #dbaf86),
+    color-stop(1, #ca9)
+);
+	background: -moz-linear-gradient(
+    center bottom,
+    #dbaf86 0%,
+    #ca9 100%
+);*/
+	display: box;
+	display: -webkit-box;
+	display: -moz-box;
+	border-bottom-left-radius: 1em;
+	border-bottom-right-radius: 1em;
+	-moz-border-radius-bottomleft: 1em;
+	-moz-border-radius-bottomright: 1em;
+	border-bottom: 2px solid #999;
+	border-left: 2px solid #999;
+	border-right: 2px solid #999;
+	background: url(images/ui-bg_highlight-soft_100_deedf7_1x100.png) 0 center;
+}
+
+.site_navigation dl {
+	margin: 0.4em 0.4em 0 0.4em;
+	padding: 0.4em;
+	/*border-left: 2px solid #ccc;
+	border-top: 2px solid #ccc;
+	border-right: 2px solid #ccc;
+	border-top-left-radius: 0.4em;
+	border-top-right-radius: 0.4em;
+	-moz-border-radius-topleft: 0.4em;
+	-moz-border-radius-topright: 0.4em;*/
+}
+.site_navigation dt {
+
+}
+
+/* @end */
+
+/* @group Article */
+
+#page {
+	padding: 0 16px;
+	border: 1px solid #fff;
+}
+
+/* @end */
+
+/* @group Publications */
+
+#publication address {
+	text-align: center;
+}
+
 /* @end */
 
 /* @group Entry Form */
@@ -83,6 +160,28 @@ dl.entry_form #entry_title {
 #option textarea {
 	width: 30em;
 	height: 10em;
+}
+dl.entry_form > dd.action {
+	padding: 1em;
+}
+dl.entry_form > dd.action input[type='submit'] {
+	font-size: 150%;
+	padding: 0.2em;
+	border: 1px solid #aaa;
+	border-radius: 0.4em;
+	-moz-border-radius: 0.4em;
+	background: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0, #ccc),
+    color-stop(1, #fff)
+);
+	background: -moz-linear-gradient(
+    center bottom,
+    #ccc 0%,
+    #fff 100%
+);
 }
 /* @end */
 

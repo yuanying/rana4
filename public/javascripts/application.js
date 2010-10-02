@@ -2,7 +2,7 @@ $(function() {
   var setupHtmlArea = function() {
     if ($('#entry_format_type').length == 0) {
       return;
-    }
+    };
     if ($('#entry_format_type').val() == 'xhtml') {
       $('#body_text textarea').htmlarea();
       $('#extend_text textarea').htmlarea();
@@ -52,5 +52,6 @@ $(function() {
   
   setupTabs();
   setupPathSuggestion();
-  setupHtmlArea();
+  // for safari bug?
+  setTimeout(setupHtmlArea,500);
 });

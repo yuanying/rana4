@@ -2,8 +2,8 @@
 
 <dl>
   <dt><%= t '.archives.title' %></dt>
-  <dd><%= link_to_unless_current t('.archives.new_entry'), new_site_entry_path(site) %></dd>
-  <dd><%= link_to_unless_current t('.archives.entries'), site_entries_path(site)%></dd>
+  <dd><%= link_to t('.archives.new_entry'), new_site_entry_path(site) %></dd>
+  <dd><%= link_to t('.archives.entries'), site_entries_path(site)%></dd>
   <dd><%= link_to_unless_current t('.archives.files')%></dd>
 </dl>
 

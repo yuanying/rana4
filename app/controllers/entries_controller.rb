@@ -43,9 +43,10 @@ class EntriesController < ApplicationController
   # POST /entries
   # POST /entries.xml
   def create
-    @entry = Entry.new(params[:entry].merge(:site_id => @site.id, :user_id => @user.id))
-    @entry.site = @site
-    @entry.user = @user
+    @entry = Entry.find_by_identify_string(params[:entry][:identify_string])
+    unless @entry
+      @entry = Entry.new(params[:entry].merge(:site_id => @site.id, :user_id => @user.id))
+    end
 
     respond_to do |format|
       if @entry.save

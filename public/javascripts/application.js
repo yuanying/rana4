@@ -29,6 +29,10 @@ $(function() {
         disableHtmlArea();
       }
     });
+    $(window).bind('unload', function() {
+      $('#body_text textarea').htmlarea('toggleHTMLView');
+      $('#extend_text textarea').htmlarea('toggleHTMLView');
+    });
   }
   
   var setupTabs = function() {

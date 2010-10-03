@@ -39,7 +39,7 @@
     </div></dd>
     <dt class='title'><%= f.label :posted_at_local %></dt>
     <dd class='title'>
-      <%= f.datetime_select :posted_at_local %>
+      <%= f.datetime_select :posted_at_local, :include_seconds=>true %>
     </dd>
     <dd class='action'>
       <%= f.hidden_field :identify_string %>

@@ -13,6 +13,7 @@ class Entry < ActiveRecord::Base
   composed_of :posted_at_local, :class_name => 'Time'
   
   after_initialize :setup_etc
+  before_validation_on_create :setup_path
   
   attr_accessor :path_suggestion
   
@@ -27,9 +28,18 @@ class Entry < ActiveRecord::Base
     end
   end
   
-  def before_validation_on_create
+  def setup_path
     self.path = self.path_suggestion
     self.uniquirize_path!
+  end
+  
+  # i don't know, create_time_zone_conversion_attribute? is what work.
+  def self.create_time_zone_conversion_attribute?(name, column)
+    if name.to_sym == :posted_at_local
+      true
+    else
+      super
+    end
   end
   
   def posted_at_local=(time)

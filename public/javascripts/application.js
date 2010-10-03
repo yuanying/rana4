@@ -3,28 +3,30 @@ $(function() {
     if ($('#entry_format_type').length == 0) {
       return;
     };
-    if ($('#entry_format_type').val() == 'xhtml') {
+    var enableHtmlArea = function() {
       $('#body_text textarea').htmlarea();
       $('#extend_text textarea').htmlarea();
+      $('.jHtmlArea').css('width', '100%'); // Require for outer frame's width
+      $('.jHtmlArea .ToolBar').css('width', '100%'); // Require for outer frame's width
+      $('.jHtmlArea').find('iframe').css('width', '98%'); // Should allow for padding based on CSS rules
+      $('.jHtmlArea').find('iframe').css('height', '20em'); // Required for inner iframe's height
+    };
+    var disableHtmlArea = function() {
+      $('#body_text textarea').htmlarea('updateTextArea');
+      $('#body_text textarea').htmlarea('dispose');
+      $('#extend_text textarea').htmlarea('updateTextArea');
+      $('#extend_text textarea').htmlarea('dispose');
+    };
+    
+    if ($('#entry_format_type').val() == 'xhtml') {
+      enableHtmlArea();
     }
-    $('.jHtmlArea').css('width', '100%'); // Require for outer frame's width
-    $('.jHtmlArea .ToolBar').css('width', '100%'); // Require for outer frame's width
-    $('.jHtmlArea').find('iframe').css('width', '98%'); // Should allow for padding based on CSS rules
-    $('.jHtmlArea').find('iframe').css('height', '20em'); // Required for inner iframe's height
 
     $('#entry_format_type').bind('change', function() {
       if ($(this).val() == 'xhtml') {
-        $('#body_text textarea').htmlarea();
-        $('#extend_text textarea').htmlarea();
-        $('.jHtmlArea').css('width', '100%'); // Require for outer frame's width
-        $('.jHtmlArea .ToolBar').css('width', '100%'); // Require for outer frame's width
-        $('.jHtmlArea').find('iframe').css('width', '98%'); // Should allow for padding based on CSS rules
-        $('.jHtmlArea').find('iframe').css('height', '20em'); // Required for inner iframe's height
+        enableHtmlArea();
       } else {
-        $('#body_text textarea').htmlarea('updateTextArea');
-        $('#body_text textarea').htmlarea('dispose');
-        $('#extend_text textarea').htmlarea('updateTextArea');
-        $('#extend_text textarea').htmlarea('dispose');
+        disableHtmlArea();
       }
     });
   }

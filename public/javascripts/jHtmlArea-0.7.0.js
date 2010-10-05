@@ -139,8 +139,20 @@
             if ($.browser.msie && !url) {
                 this.ec("insertImage", true);
             } else {
-                this.ec("insertImage", false, (url || prompt("Image URL:", "http://")));
-            }
+              var src = prompt("Image URL:", "http://");
+              this.iframe[0].contentWindow.focus();
+              var r = this.getRange();
+              var image = this.iframe[0].contentWindow.document.createElement("img");
+              image.src = src;
+              image.onload = function() {
+                $(image).attr('width', image.width);
+                $(image).attr('height', image.height);
+                $(image).attr('alt', '');
+              }
+              r.deleteContents();
+              r.insertNode(image);
+              r.collapse(false);
+              r.select();            }
         },
         removeFormat: function() {
             this.ec("removeFormat", false, []);

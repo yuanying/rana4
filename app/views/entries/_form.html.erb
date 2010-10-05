@@ -28,8 +28,13 @@
       </div>
       <div class="field" id='option'>
         <dl>
+          <% if @entry.new_record? %>
           <dt><%= f.label :path_suggestion %></dt>
           <dd><%= f.text_field :path_suggestion %></dd>
+          <% else %>
+          <dt><%= f.label :path %></dt>
+          <dd><%= f.object.path %></dd>
+          <% end %>
           <dt><%= f.label :format_type %></dt>
           <dd><%= f.collection_select :format_type, FormatType.types, :first, :first %></dd>
           <dt><%= f.label :description %></dt>

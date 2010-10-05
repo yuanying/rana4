@@ -59,9 +59,26 @@ $(function() {
     });
   }
   
+  // var setupDescriptionAutoCreate = function() {
+  //   if ($('#entry_description').length == 0) {
+  //     return;
+  //   }
+  //   var suggestDescription = $('#entry_description').val();
+  //   $('#entry_body_text').bind('change', function() {
+  //     var text = $('#entry_body_text').val();
+  //     var description = $('#entry_description').val();
+  //     text = $($('#entry_body_text').val()).text();//.subString(0, 255);
+  //     if (description == suggestDescription) {
+  //       suggestDescription = text;
+  //       $('#entry_description').val(suggestDescription);
+  //     }
+  //   });
+  // }
+  
   
   setupTabs();
   setupPathSuggestion();
+  // setupDescriptionAutoCreate();
   // for safari bug?
   setTimeout(setupHtmlArea,500);
 });

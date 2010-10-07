@@ -10,6 +10,15 @@
   <link href="/stylesheets/rana4.css" media="screen" rel="stylesheet" type="text/css" />
   <% end %>
   <%= stylesheet_link_tag 'jHtmlArea' %>
+  <script type='text/javascript'>
+  var Rana = { 
+    root_path : '<%=root_path%>',
+    <%- if @site -%>
+    new_attachment_path : '<%=new_site_attachment_path(@site)%>',
+    <%- end -%>
+    dummy : null
+  };
+  </script>
   <%= javascript_include_tag 'jquery.min' %>
   <%= javascript_include_tag 'jquery-ui-1.8.5.custom.min' %>
   <%= javascript_include_tag 'jHtmlArea-0.7.0' %>

@@ -19,6 +19,7 @@
         <li><a href='#body_text'><%= f.label :body_text %></a></li>
         <li><a href='#extend_text'><%= f.label :extend_text %></a></li>
         <li><a href='#option'><%=t '.option'%></a></li>
+        <li><a href='#attachments'><%=t '.attachments'%></a></li>
       </ul>
       <div class="field" id='body_text'>
         <%= f.text_area :body_text %>
@@ -41,6 +42,14 @@
           <dd><%= f.text_area :description %></dd>
         </dl>
       </div>
+      <div class='field' id='attachments'>
+        <p><a href="#" id="upload_attachment_button"><span class="ui-icon ui-icon-newwin"></span><%=t '.upload_attachments'%></a></p>
+        <ul class='attachments'>
+        <%= f.fields_for :attachments do | attachment_field | %>
+          <%= render :partial => 'attachment_li', :locals => { :attachment => attachment_field.object } %>
+        <% end %>
+        </ul>
+      </div>
     </div></dd>
     <dt class='title'><%= f.label :posted_at_local %></dt>
     <dd class='title'>
@@ -54,3 +63,5 @@
   </dl>
   
 <% end %>
+
+<div id='upload_dialog' style='display: none;'></div>

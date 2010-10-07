@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Disk filename:</b>
+  <%= @attachment.disk_filename %>
+</p>
+
+<p>
+  <b>Filename:</b>
+  <%= @attachment.filename %>
+</p>
+
+<p>
+  <b>Content type:</b>
+  <%= @attachment.content_type %>
+</p>
+
+<p>
+  <b>Width:</b>
+  <%= @attachment.width %>
+</p>
+
+<p>
+  <b>Height:</b>
+  <%= @attachment.height %>
+</p>
+
+<p>
+  <b>Size:</b>
+  <%= @attachment.size %>
+</p>
+
+<p>
+  <b>Entry:</b>
+  <%= @attachment.entry_id %>
+</p>
+
+<ul style='display:none;' id='attachment_list_item'>
+  <%= render :partial => 'entries/attachment_li', :locals => { :attachment => attachment_field.object } %>
+</ul>

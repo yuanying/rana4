@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rana4</title>
+  <% if Rails.env  == 'production '%>
+  <%= stylesheet_link_tag 'attachments.css' %>
+  <% else %>
+  <link href="/stylesheets/attachments.css" media="screen" rel="stylesheet" type="text/css" />
+  <% end %>
+  <script type='text/javascript'>
+  var Rana = { 
+    root_path : '<%=root_path%>',
+    <%- if @site -%>
+    new_attachment_path : '<%=new_site_attachment_path(@site)%>',
+    <%- end -%>
+    <%- if @attachment && !@attachment.new_record? -%>
+    attachment_path : '<%=site_attachment_path(@site, @attachment)%>',
+    <%- end -%>
+    dummy : null
+  };
+  </script>
+  <%= javascript_include_tag 'jquery.min' %>
+  <%= javascript_include_tag 'attachments' %>
+  <meta name='wl-screen-id' content='<%=@screeen_id%>' />
+  <%= csrf_meta_tag %>
+</head>
+
+<div id='page'><%= yield %></div>
+
+</body>
+</html>

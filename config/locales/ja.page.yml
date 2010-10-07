@@ -17,6 +17,11 @@ ja:
   entries:
     form:
       option: 'オプション'
+      attachments: '添付画像一覧'
+      upload_attachments: '画像を添付'
     new:
       title: '新しい記事'
+  attachments:
+    form:
+      submit: '画像をアップロード'
       

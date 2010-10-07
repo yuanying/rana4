@@ -2,6 +2,8 @@ class Site < ActiveRecord::Base
   has_many :writings, :dependent=>:destroy
   has_many :authors, :source => :user, :through => :writings
   has_many :entries, :dependent=>:nullify
+  has_many :attachments, :dependent=>:nullify
+  
   composed_of :tz,
               :class_name => 'ActiveSupport::TimeZone',
               :mapping => %w(timezone name)

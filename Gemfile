@@ -5,6 +5,8 @@ gem 'mysql2'
 gem "jquery-rails"
 gem 'bluecloth'
 gem 'RedCloth'
+gem 'RubyInline', :require => nil
+gem 'image_science'
 
 group :test, :development do
   gem "rspec-rails", ">= 2.0.0.beta.22"

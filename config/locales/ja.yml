@@ -141,6 +141,7 @@ ja:
         record_invalid: "バリデーションに失敗しました。 %{errors}"
         from_function_invalid: "の属している機能仕様が to の属している機能仕様と一致しません。"
         to_function_invalid: "の属している機能仕様が from の属している機能仕様と一致しません。"
+        file_is_not_image: "は、画像である必要があります。"
 
       full_messages:
         format: "%{attribute}%{message}"

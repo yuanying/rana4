@@ -33,11 +33,11 @@ $(function() {
       $('#body_text textarea').htmlarea('toggleHTMLView');
       $('#extend_text textarea').htmlarea('toggleHTMLView');
     });
-  }
+  };
   
   var setupTabs = function() {
     $(".tabs").tabs();
-  }
+  };
   
   var setupPathSuggestion = function() {
     if ($('#entry_path_suggestion').length == 0) {
@@ -57,7 +57,20 @@ $(function() {
         $('#entry_path_suggestion').val(suggestValue);
       }
     });
-  }
+  };
+  
+  var setupUploadAttachmentButton =function() {
+    $('#upload_attachment_button').bind('click', function() {
+      $('#upload_dialog').load(Rana.new_attachment_path + " #new_attachment_form_div");
+      $('#upload_dialog').dialog({
+        title : 'Select Image.',
+        modal : true,
+        width : '80%',
+        dummy : null
+      });
+      return false;
+    });
+  };
   
   // var setupDescriptionAutoCreate = function() {
   //   if ($('#entry_description').length == 0) {
@@ -78,6 +91,7 @@ $(function() {
   
   setupTabs();
   setupPathSuggestion();
+  setupUploadAttachmentButton();
   // setupDescriptionAutoCreate();
   // for safari bug?
   setTimeout(setupHtmlArea,500);

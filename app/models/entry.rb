@@ -1,6 +1,7 @@
 class Entry < ActiveRecord::Base
   belongs_to :site
   belongs_to :user
+  has_many :attachments, :dependent=>:nullify
   
   validates_presence_of :title
   validates_presence_of :posted_at
@@ -67,5 +68,12 @@ class Entry < ActiveRecord::Base
     characters = ('a'..'z').to_a + ('A'..'Z').to_a + ('0'..'9').to_a
     seed = Array.new(78){characters[rand(characters.size)]}.join
     seed
+  end
+  
+  def attachments_attributes=(attachments_attributes=[])
+    attachments_attributes.each do |a|
+      attachment = Attachment.find_by_id(a[:id])
+      self.attachments << attachment if attachment && (attachment.entry != self)
+    end
   end
 end

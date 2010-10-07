@@ -1,0 +1,35 @@
+<div id='new_attachment_form_div'>
+<%= form_for([@site, @attachment], :html => {:enctype => "multipart/form-data", :target => 'upload_processor'}) do |f| %>
+  <% if @attachment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@attachment.errors.count, "error") %> prohibited this attachment from being saved:</h2>
+
+      <ul>
+      <% @attachment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :file %><br />
+    <%= f.file_field :file %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit t('.submit') %>
+  </div>
+<% end %>
+<%#
+if Rails.env == 'production'
+  frame_width = 1
+  frame_height = 1
+else
+  frame_width = 300
+  frame_height = 300
+end
+%>
+<iframe id='upload_processor' scrolling="auto" frameborder="0" width='1' height='1'>
+</iframe>
+</div>

@@ -183,6 +183,53 @@ dl.entry_form > dd.action input[type='submit'] {
     #fff 100%
 );
 }
+#upload_attachment_button {
+	position: relative;
+		padding: 0.4em 0.4em 0.4em 20px;
+		border: 1px solid #aaa;
+		border-radius: 0.4em;
+		-moz-border-radius: 0.4em;
+		background: -webkit-gradient(
+	    linear,
+	    left bottom,
+	    left top,
+	    color-stop(0, #ccc),
+	    color-stop(1, #fff)
+	);
+		background: -moz-linear-gradient(
+	    center bottom,
+	    #ccc 0%,
+	    #fff 100%
+	);
+	font-size: 0.8em;
+}
+#upload_attachment_button .ui-icon {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+@-webkit-keyframes attachment_fade_in {
+
+        0%      {
+                background-color: transparent;
+                }
+
+        30%     {
+	background-color: red;
+}
+
+
+        100%    {
+                background-color: transparent;
+                }
+
+        }
+ul.attachments li.new {
+	-webkit-animation-name: attachment_fade_in;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: ease-out;
+  -webkit-animation-iteration-count: 1;
+}
 /* @end */
 
 

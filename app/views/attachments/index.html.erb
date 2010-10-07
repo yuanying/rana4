@@ -1,0 +1,35 @@
+<h1>Listing attachments</h1>
+
+<table>
+  <tr>
+    <th>Disk filename</th>
+    <th>Filename</th>
+    <th>Content type</th>
+    <th>Width</th>
+    <th>Height</th>
+    <th>Size</th>
+    <th>Entry</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @attachments.each do |attachment| %>
+  <tr>
+    <td><%= attachment.disk_filename %></td>
+    <td><%= attachment.filename %></td>
+    <td><%= attachment.content_type %></td>
+    <td><%= attachment.width %></td>
+    <td><%= attachment.height %></td>
+    <td><%= attachment.size %></td>
+    <td><%= attachment.entry_id %></td>
+    <td><%= link_to 'Show', attachment %></td>
+    <td><%= link_to 'Edit', edit_attachment_path(attachment) %></td>
+    <td><%= link_to 'Destroy', attachment, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Attachment', new_attachment_path %>

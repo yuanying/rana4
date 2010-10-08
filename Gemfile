@@ -8,6 +8,10 @@ gem 'RedCloth'
 gem 'RubyInline', :require => nil
 gem 'image_science'
 
+group :development do
+  gem "rails-erd"
+end
+
 group :test, :development do
   gem "rspec-rails", ">= 2.0.0.beta.22"
   gem "factory_girl_rails", :require => nil 

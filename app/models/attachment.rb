@@ -22,7 +22,7 @@ class Attachment < ActiveRecord::Base
   end
   
   def validate
-    ImageScience.with_image(@tmp.path) {|image| }
+    ImageScience.with_image(@tmp.path) {|image| } if @tmp
   rescue
     errors.add(:file, t('activerecord.errors.messages.file_is_not_image'))
   end
@@ -84,13 +84,15 @@ class Attachment < ActiveRecord::Base
       # keep the extension if any
       ascii << $1 if filename =~ %r{(\.[a-zA-Z0-9]+)$}
     end
-    while File.exist?(File.join(self.site.path, datestamp, "#{ascii}#{index}"))
+    extname   = File.extname(ascii)
+    basename  = File.basename(ascii, extname)
+    while File.exist?(File.join(self.site.path, datestamp, "#{basename}#{index}#{extname}"))
       if index.empty?
         index = '_01'
       else
         index.succ!
       end
     end
-    File.join(datestamp, "#{ascii}#{index}")
+    File.join(datestamp, "#{basename}#{index}#{extname}")
   end
 end

@@ -13,6 +13,7 @@
   <script type='text/javascript'>
   var Rana = { 
     root_path : '<%=root_path%>',
+    waiting_image_path : '<%= image_path("ajax-loader.gif")%>',
     <%- if @site -%>
     new_attachment_path : '<%=new_site_attachment_path(@site)%>',
     <%- end -%>

@@ -59,7 +59,7 @@ $(function() {
     });
   };
   
-  var setupUploadAttachmentButton =function() {
+  var setupUploadAttachmentButton = function() {
     $('#upload_attachment_button').bind('click', function() {
       $('#upload_dialog').load(Rana.new_attachment_path + " #new_attachment_form_div");
       $('#upload_dialog').dialog({
@@ -69,6 +69,14 @@ $(function() {
         dummy : null
       });
       return false;
+    });
+  };
+  
+  var setupUploadDialogWaitImage = function() {
+    $('#new_attachment_form_div form').live('submit', function(){
+      $('input[type=submit]', this).attr('disabled', 'disabled');
+      $('#new_file_attachment_div').css('display', 'none');
+      $('#new_file_attachment_div').after($('<p><img src="' + Rana.waiting_image_path + '" width="128" height="15" alt="Waitting..." /></p>'));
     });
   };
   
@@ -92,6 +100,7 @@ $(function() {
   setupTabs();
   setupPathSuggestion();
   setupUploadAttachmentButton();
+  setupUploadDialogWaitImage();
   // setupDescriptionAutoCreate();
   // for safari bug?
   setTimeout(setupHtmlArea,500);

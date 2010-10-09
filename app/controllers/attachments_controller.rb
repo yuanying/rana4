@@ -49,7 +49,7 @@ class AttachmentsController < ApplicationController
 
     respond_to do |format|
       if @attachment.save
-        format.html { redirect_to(@attachment, :notice => 'Attachment was successfully created.') }
+        format.html { redirect_to([@site, @attachment], :notice => 'Attachment was successfully created.') }
         format.xml  { render :xml => @attachment, :status => :created, :location => @attachment }
       else
         format.html { render :action => "new" }
@@ -65,7 +65,7 @@ class AttachmentsController < ApplicationController
 
     respond_to do |format|
       if @attachment.update_attributes(params[:attachment])
-        format.html { redirect_to(@attachment, :notice => 'Attachment was successfully updated.') }
+        format.html { redirect_to([@site, @attachment], :notice => 'Attachment was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -81,7 +81,7 @@ class AttachmentsController < ApplicationController
     @attachment.destroy
 
     respond_to do |format|
-      format.html { redirect_to(attachments_url) }
+      format.html { redirect_to(site_attachments_url(@site)) }
       format.xml  { head :ok }
     end
   end

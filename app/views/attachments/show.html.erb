@@ -2,7 +2,7 @@
 
 <p>
   <b>Disk filename:</b>
-  <%= @attachment.disk_filename %>
+  <%= @attachment.filepath %>
 </p>
 
 <p>
@@ -36,5 +36,5 @@
 </p>
 
 <ul style='display:none;' id='attachment_list_item'>
-  <%= render :partial => 'entries/attachment_li', :locals => { :attachment => attachment_field.object } %>
+  <%= render :partial => 'entries/attachment_li', :locals => { :attachment => @attachment } %>
 </ul>

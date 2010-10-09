@@ -1,3 +1,7 @@
+<% content_for :header_tags do %>
+  <%= javascript_include_tag 'new_entry'%>
+<% end %>
+
 <%= form_for([@site, @entry]) do |f| %>
   <% if @entry.errors.any? %>
     <div id="error_explanation">

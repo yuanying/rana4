@@ -3,7 +3,7 @@ $(function() {
   if (attachment_list_item.length > 0) {
     attachment_list_item = parent.window.$(attachment_list_item.html());
     attachment_list_item.attr('class', 'new');
-    parent.window.$('ul.attachments').append(attachment_list_item);
+    parent.window.$('table.attachments tbody').append(attachment_list_item);
   } else {
     alert('Invalid Image.');
   }

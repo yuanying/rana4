@@ -24,4 +24,5 @@ ja:
   attachments:
     form:
       submit: '画像をアップロード'
+      adjust_size: '画像サイズを記事に最適化する'
       

@@ -11,11 +11,11 @@
       </ul>
     </div>
   <% end %>
-
-  <div id='new_file_attachment_div' class="field">
-    <%= f.label :file %><br />
-    <%= f.file_field :file %>
-  </div>
+  
+  <dl id='new_file_attachment_div'>
+    <dt><%= f.file_field :file %></dt>
+    <dd><%= f.check_box :adjust_size, :id => 'adjust_size_check' %> <label for='adjust_size_check'><%=t '.adjust_size'%></label></dd>
+  </dl>
 
   <div class="actions">
     <%= f.submit t('.submit') %>

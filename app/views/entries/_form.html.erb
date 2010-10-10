@@ -48,11 +48,13 @@
       </div>
       <div class='field' id='attachments'>
         <p><a href="#" id="upload_attachment_button"><span class="ui-icon ui-icon-newwin"></span><%=t '.upload_attachments'%></a></p>
-        <ul class='attachments'>
-        <% f.object.attachments.each do | attachment | %>
-          <%= render :partial => 'attachment_li', :locals => { :attachment => attachment } %>
-        <% end %>
-        </ul>
+        <table class='attachments'>
+          <tbody>
+            <% f.object.attachments.each do | attachment | %>
+              <%= render :partial => 'attachment_li', :locals => { :attachment => attachment } %>
+            <% end %>
+          </tbody>
+        </table>
       </div>
     </div></dd>
     <dt class='title'><%= f.label :posted_at_local %></dt>

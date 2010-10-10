@@ -35,6 +35,8 @@
   <%= @attachment.entry_id %>
 </p>
 
-<ul style='display:none;' id='attachment_list_item'>
+<table style='display:none;'>
+<tbody id='attachment_list_item'>
   <%= render :partial => 'entries/attachment_li', :locals => { :attachment => @attachment } %>
-</ul>
+</tbody>
+</table>

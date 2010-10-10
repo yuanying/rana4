@@ -224,12 +224,45 @@ dl.entry_form > dd.action input[type='submit'] {
                 }
 
         }
-ul.attachments li.new {
+table.attachments tr.new {
 	-webkit-animation-name: attachment_fade_in;
-  -webkit-animation-duration: 1s;
-  -webkit-animation-timing-function: ease-out;
-  -webkit-animation-iteration-count: 1;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-timing-function: ease-out;
+	-webkit-animation-iteration-count: 1;
 }
+table.attachments {
+	width: 100%;
+	border-collapse: collapse;
+}
+table.attachments td {
+	vertical-align: top;
+}
+table.attachments td.image {
+	width: 77px;
+}
+table.attachments td.image img {
+	border: 1px solid #fff;
+}
+table.attachments td.detail {
+	padding: 0.2em 0.4em 0.8em 0.4em;
+}
+table.attachments tr {
+	/*border-bottom: 1px dotted #3aa5f8;*/
+}
+table.attachments dl {
+	margin: 0;
+	padding: 0;
+}
+table.attachments dt {
+	color: #3aa5f8;
+}
+table.attachments dd {
+	
+}
+table.attachments dd input {
+	width: 100%;
+}
+
 /* @end */
 
 

@@ -31,12 +31,20 @@ class Attachment < ActiveRecord::Base
     File.join(self.site.path, self.filepath)
   end
   
+  def file_url
+    self.site.url + self.filepath
+  end
+  
   def iconpath
     "#{self.filepath}_icon.png"
   end
   
   def disk_iconpath
     "#{self.disk_filepath}_icon.png"
+  end
+  
+  def icon_url
+    self.site.url + self.iconpath
   end
   
   def save_image_to_disk

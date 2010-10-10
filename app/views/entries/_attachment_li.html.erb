@@ -1,5 +1,15 @@
-<li>
-  <input name="entry[attachments_attributes][][id]" type="hidden" value='<%= attachment.id %>' />
-  <%= attachment.filename %>
-</li>
+<tr>
+  <td class='image'><img src='<%= attachment.icon_url%>' width='75' height='75' alt='icon' /></td>
+  <td class='detail'>
+    <input name="entry[attachments_attributes][][id]" type="hidden" value='<%= attachment.id %>' />
+    <dl>
+      <dt>File name</dt>
+      <dd class='filename'><%= attachment.filename %></dd>
+      <dt>Image URL</dt>
+      <dd class='url'><input value='<%= attachment.file_url %>' /></dd>
+      <dt>Image Tag</dt>
+      <dd class='tag'><input value="<img src='<%=attachment.file_url%>' width='<%=attachment.width%>' height='<%=attachment.height%>' alt='<%=attachment.filename%>' />" /></dd>
+    </dl>
+  </td>
+</tr>
 

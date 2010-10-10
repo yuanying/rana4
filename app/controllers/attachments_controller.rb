@@ -29,7 +29,8 @@ class AttachmentsController < ApplicationController
   # GET /attachments/new.xml
   def new
     @attachment = Attachment.new(:site => @site)
-
+    @attachment.adjust_size = true
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @attachment }

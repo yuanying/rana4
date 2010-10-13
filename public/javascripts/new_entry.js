@@ -105,5 +105,6 @@ $(function() {
   setupUploadDialogWaitImage();
   // setupDescriptionAutoCreate();
   // for safari bug?
-  setTimeout(setupHtmlArea,500);
+  // setTimeout(setupHtmlArea,500);
+  jQuery.event.add(window, "load", setupHtmlArea);
 });

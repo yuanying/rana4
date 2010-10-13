@@ -5,7 +5,9 @@ $(function() {
     };
     var enableHtmlArea = function() {
       $('#body_text textarea').htmlarea();
+      $('#body_text textarea').htmlarea('p');
       $('#extend_text textarea').htmlarea();
+      $('#extend_text textarea').htmlarea('p');
       $('.jHtmlArea').css('width', '100%'); // Require for outer frame's width
       $('.jHtmlArea .ToolBar').css('width', '100%'); // Require for outer frame's width
       $('.jHtmlArea').find('iframe').css('width', '98%'); // Should allow for padding based on CSS rules

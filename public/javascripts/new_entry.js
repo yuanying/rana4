@@ -3,21 +3,24 @@ $(function() {
     if ($('#entry_format_type').length == 0) {
       return;
     };
+    var bodyHtmlArea = null;
+    var extendHtmlArea = null;
     var enableHtmlArea = function() {
-      $('#body_text textarea').htmlarea();
-      $('#body_text textarea').htmlarea('p');
-      $('#extend_text textarea').htmlarea();
-      $('#extend_text textarea').htmlarea('p');
+      bodyHtmlArea = $('#body_text textarea').htmlarea()[0].jhtmlareaObject;
+      bodyHtmlArea.p();
+      extendHtmlArea = $('#extend_text textarea').htmlarea()[0].jhtmlareaObject;
+      extendHtmlArea.p();
       $('.jHtmlArea').css('width', '100%'); // Require for outer frame's width
       $('.jHtmlArea .ToolBar').css('width', '100%'); // Require for outer frame's width
       $('.jHtmlArea').find('iframe').css('width', '98%'); // Should allow for padding based on CSS rules
       $('.jHtmlArea').find('iframe').css('height', '20em'); // Required for inner iframe's height
     };
     var disableHtmlArea = function() {
-      $('#body_text textarea').htmlarea('updateTextArea');
-      $('#body_text textarea').htmlarea('dispose');
-      $('#extend_text textarea').htmlarea('updateTextArea');
-      $('#extend_text textarea').htmlarea('dispose');
+      if (bodyHtmlArea == null || extendHtmlArea == null ) { return; }
+      bodyHtmlArea.updateTextArea();
+      bodyHtmlArea.dispose();
+      extendHtmlArea.updateTextArea();
+      extendHtmlArea.dispose();
     };
     
     if ($('#entry_format_type').val() == 'xhtml') {
@@ -32,8 +35,9 @@ $(function() {
       }
     });
     $(window).bind('unload', function() {
-      $('#body_text textarea').htmlarea('toggleHTMLView');
-      $('#extend_text textarea').htmlarea('toggleHTMLView');
+      if (bodyHtmlArea == null || extendHtmlArea == null ) { return; }
+      bodyHtmlArea.toggleHTMLView();
+      extendHtmlArea.toggleHTMLView();
     });
   };
   

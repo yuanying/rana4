@@ -3,14 +3,7 @@
 <table>
   <tr>
     <th>Title</th>
-    <th>Path</th>
     <th>Is public</th>
-    <th>Format type</th>
-    <th>Description</th>
-    <th>Body text</th>
-    <th>Extend text</th>
-    <th>Site</th>
-    <th>User</th>
     <th></th>
     <th></th>
     <th></th>
@@ -19,14 +12,7 @@
 <% @entries.each do |entry| %>
   <tr>
     <td><%= entry.title %></td>
-    <td><%= entry.path %></td>
     <td><%= entry.is_public %></td>
-    <td><%= entry.format_type %></td>
-    <td><%= entry.description %></td>
-    <td><%= entry.body_text %></td>
-    <td><%= entry.extend_text %></td>
-    <td><%= entry.site_id %></td>
-    <td><%= entry.user_id %></td>
     <td><%= link_to 'Show', [@site, entry] %></td>
     <td><%= link_to 'Edit', edit_site_entry_path(@site, entry) %></td>
     <td><%= link_to 'Destroy', [@site, entry], :confirm => 'Are you sure?', :method => :delete %></td>

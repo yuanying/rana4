@@ -16,11 +16,14 @@ $(function() {
       $('.jHtmlArea').find('iframe').css('height', '20em'); // Required for inner iframe's height
     };
     var disableHtmlArea = function() {
-      if (bodyHtmlArea == null || extendHtmlArea == null ) { return; }
-      bodyHtmlArea.updateTextArea();
-      bodyHtmlArea.dispose();
-      extendHtmlArea.updateTextArea();
-      extendHtmlArea.dispose();
+      if (bodyHtmlArea) {
+        bodyHtmlArea.updateTextArea();
+        bodyHtmlArea.dispose();
+      }
+      if(extendHtmlArea) {
+        extendHtmlArea.updateTextArea();
+        extendHtmlArea.dispose();
+      }
     };
     
     if ($('#entry_format_type').val() == 'xhtml') {

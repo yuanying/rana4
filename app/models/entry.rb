@@ -15,6 +15,7 @@ class Entry < ActiveRecord::Base
   
   after_initialize :setup_etc
   before_validation_on_create :setup_path
+  before_validation :setup_description
   
   attr_accessor :path_suggestion
   
@@ -32,6 +33,12 @@ class Entry < ActiveRecord::Base
   def setup_path
     self.path = self.path_suggestion
     self.uniquirize_path!
+  end
+  
+  def setup_description
+    if self.description.nil? || self.description.empty?
+      self.description = self.body_text.gsub(/<.+?>/,'').split('')[0, 253].join('')
+    end
   end
   
   # i don't know, create_time_zone_conversion_attribute? is what work.

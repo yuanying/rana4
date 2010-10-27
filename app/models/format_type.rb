@@ -3,6 +3,12 @@ class FormatType
     @@format_types
   end
   
+  def self.find(name)
+    type = @@format_types[name]
+    type = @@format_types['xhtml'] unless type
+    type
+  end
+  
   def self.register type
     @@format_types ||= {}
     @@format_types[type.name] = type

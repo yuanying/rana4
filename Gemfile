@@ -7,6 +7,7 @@ gem 'bluecloth'
 gem 'RedCloth'
 gem 'RubyInline', :require => nil
 gem 'image_science'
+gem "will_paginate", "~> 3.0.pre2"
 
 group :development do
   gem "rails-erd"

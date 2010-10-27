@@ -62,7 +62,8 @@
       <%= f.datetime_select :posted_at_local, :include_seconds=>true %>
     </dd>
     <dd class='action'>
-      <%= f.hidden_field :identify_string %>
+      <%= f.text_field :identify_string, :style => 'display: none;' %>
+      <%= f.text_field :identify_string_temp, :style => 'display: none;'  %>
       <%= f.submit %>
       <%= f.check_box :is_public %> <%= f.label :is_public %>
     </dd>

@@ -14,16 +14,17 @@ class Entry < ActiveRecord::Base
   composed_of :posted_at_local, :class_name => 'Time'
   
   after_initialize :setup_etc
-  before_validation_on_create :setup_path
+  before_validation :setup_path, :on => :create
   before_validation :setup_description
   before_validation :update_formated_text
   
   attr_accessor :path_suggestion
+  attr_accessor :identify_string_temp
   
   def setup_etc
     self.posted_at = DateTime.now unless self.posted_at
     self.path_suggestion = "/#{self.posted_at_local.strftime('%Y')}/#{self.posted_at_local.strftime('%m')}/#{self.posted_at_local.strftime('%d')}/#{self.posted_at_local.strftime('%H-%M-%S')}" unless self.path_suggestion
-    self.identify_string = get_unique_string(:identify_string) unless self.identify_string
+    self.identify_string_temp = get_unique_string(:identify_string) unless self.identify_string
     self.is_public = true unless self.is_public
     if self.format_type.nil? && self.user && self.site
       writing = Writing.find_by_user_id_and_site_id(self.user.id, self.site.id)

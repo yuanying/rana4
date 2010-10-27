@@ -89,6 +89,12 @@ $(function() {
     });
   };
   
+  var setupIdentifyString = function() {
+    if ($('#entry_identify_string').val().length == 0) {
+      $('#entry_identify_string').val($('#entry_identify_string_temp').val());
+    }
+  };
+  
   // var setupDescriptionAutoCreate = function() {
   //   if ($('#entry_description').length == 0) {
   //     return;
@@ -110,8 +116,9 @@ $(function() {
   setupPathSuggestion();
   setupUploadAttachmentButton();
   setupUploadDialogWaitImage();
+  setupIdentifyString()
   // setupDescriptionAutoCreate();
   // for safari bug?
-  // setTimeout(setupHtmlArea,500);
-  jQuery.event.add(window, "load", setupHtmlArea);
+  setTimeout(setupHtmlArea,500);
+  // jQuery.event.add(window, "load", setupHtmlArea);
 });
